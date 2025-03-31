@@ -54,14 +54,26 @@ The dataset consists of hit and non-hit songs from multiple decades with feature
 ## Machine Learning Models & Results
 Models were trained on the dataset, and their performances were evaluated using accuracy and F1-score:
 
-| Model               | Accuracy  | F1-Score |
-|--------------------|----------|----------|
-| SVM               | 73.72%    | 76.67%   |
-| Random Forest     | 73.47%    | 75.02%   |
-| Logistic Regression | 69.64%    | 71.25%   |
-| KNN               | 71.76%    | 73.72%   |
+| Model               | Accuracy  | 
+|--------------------|----------|
+| SVM               | 73.72%    |
+| Random Forest     | 73.47%    |
+| Logistic Regression | 69.64%    |
+| KNN               | 71.76%    | 
 
-SVM provided the best accuracy and was further improved using hyperparameter tuning.
+To further improve the accuracy, the subset of data (2000s to 2010s) was used, keeping evolving music trends in mind.
+
+After further preprocessing and retraining, the following metrics were obtained:
+
+| Model               | Accuracy  | 
+|--------------------|----------|
+| SVM               | 82.56%    |
+| Random Forest     | 82.48%    |
+| Logistic Regression | 80.93%    |
+| KNN               | 79.30%    | 
+
+After choosing a temporal dataset, we can clearly see the jump in best accuracy, from 73.72% to 82.56%. To further improve this, hyperparameter tuning of SVM was done.
+
 
 ## Hyperparameter Tuning
 - **Support Vector Machine (SVM)** was optimized using `RandomizedSearchCV`.
@@ -69,7 +81,7 @@ SVM provided the best accuracy and was further improved using hyperparameter tun
 ```python
 {'C': 6.1848, 'gamma': 'auto', 'kernel': 'rbf'}
 ```
-- Final retrained model achieved **74.19% accuracy**.
+- Final retrained model achieved **82.80% accuracy**.
 
 ## Conclusion
 This project showcases the power of machine learning in predicting hit songs. Future enhancements could include:
